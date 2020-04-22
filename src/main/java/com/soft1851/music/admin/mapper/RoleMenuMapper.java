@@ -32,7 +32,7 @@ public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
                     many = @Many(select = "com.soft1851.music.admin.mapper.SysMenuMapper.getMenuByParentId")
             )
     })
-    @Select("SELECT t1.id,t1.parent_id,t1.title,t1.path,t1.icon,t2.role_id,t2.menu_id,t2.permissions " +
+    @Select("SELECT t1.id,t1.parent_id,t1.title,t1.path,t1.icon,t1.status,t2.role_id,t2.menu_id,t2.permissions " +
             "FROM role_menu t2 " +
             "LEFT JOIN sys_menu t1 " +
             "ON t2.menu_id = t1.id " +

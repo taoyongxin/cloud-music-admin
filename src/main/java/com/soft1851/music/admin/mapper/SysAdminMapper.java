@@ -33,7 +33,7 @@ public interface SysAdminMapper extends BaseMapper<SysAdmin> {
      * @return
      * @throws SQLException
      */
-    Map getAdminMenuByAdminId(String adminId) throws SQLException;
+    List<SysAdmin> getAdminMenuByAdminId(String adminId) throws SQLException;
 
     /**
      * 根据用户name查询用户角色信息

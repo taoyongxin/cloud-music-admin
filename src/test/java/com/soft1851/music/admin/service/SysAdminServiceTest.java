@@ -33,4 +33,6 @@ class SysAdminServiceTest {
         ResponseResult responseResult = sysAdminService.getRoleByName("soft1851");
         System.out.println(responseResult);
     }
+
+
 }

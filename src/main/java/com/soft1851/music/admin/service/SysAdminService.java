@@ -1,9 +1,11 @@
 package com.soft1851.music.admin.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.soft1851.music.admin.common.ResponseResult;
 import com.soft1851.music.admin.dto.LoginDto;
 import com.soft1851.music.admin.entity.SysAdmin;
-import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -34,4 +36,11 @@ public interface SysAdminService extends IService<SysAdmin> {
      * @return
      */
     ResponseResult getRoleByName(String name);
+
+    /**
+     * 根据用户id查询用户信息及角色信息
+     * @param userId
+     * @return
+     */
+    List<SysAdmin> getAdminMenuByAdminId(String userId);
 }

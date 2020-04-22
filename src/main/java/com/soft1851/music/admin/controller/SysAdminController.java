@@ -27,6 +27,7 @@ import java.util.Date;
 public class SysAdminController {
     @Resource
     private SysAdminService sysAdminService;
+
     /**
      * 登录
      * @return String
@@ -37,7 +38,7 @@ public class SysAdminController {
         boolean login = sysAdminService.login(loginDto);
         if (login) {
             SysAdmin admin = sysAdminService.getAdmin(loginDto.getName());
-            return ResponseResult.success(JwtTokenUtil.getToken(admin.getId(), "admin", new Date(System.currentTimeMillis() + 60L * 1000L)));
+            return ResponseResult.success(JwtTokenUtil.getToken(loginDto.getName(), admin.getId(), new Date(System.currentTimeMillis() + 60L * 60L * 1000L)));
         } else {
             return ResponseResult.failure(ResultCode.USER_SIGN_IN_FAIL);
         }

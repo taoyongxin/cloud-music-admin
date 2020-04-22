@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author Tao
  * @version 1.0
  * @ClassName GlobalResponseHandler
- * @Description TODO
+ * @Description 全局统一响应处理
  * @date 2020-04-21 16:09
  **/
 @ControllerAdvice

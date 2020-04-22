@@ -74,4 +74,11 @@ public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdmin> i
         }
         return ResponseResult.success(mapList);
     }
+
+    @Override
+    public List<SysAdmin> getAdminMenuByAdminId(String userId) {
+        return null;
+    }
+
+
 }

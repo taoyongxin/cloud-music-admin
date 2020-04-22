@@ -10,7 +10,7 @@ import java.io.*;
  * @author Tao
  * @version 1.0
  * @ClassName RequestWrapper
- * @Description TODO
+ * @Description Request请求参数获取处理类
  * @date 2020-04-21 16:09
  **/
 public class RequestWrapper extends HttpServletRequestWrapper {

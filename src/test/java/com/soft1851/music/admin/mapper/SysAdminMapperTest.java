@@ -23,15 +23,12 @@ class SysAdminMapperTest {
 //        System.out.println(sysAdmin);
 //    }
 
-    @Test
-    void getAdminMenuByAdminId() throws SQLException{
-        Map map = sysAdminMapper.getAdminMenuByAdminId("22516FB6A9D389D7FC21420806150A7B");
-        System.out.println(map);
-    }
+
 
     @Test
     void getRoleByAdminId() throws SQLException{
         List<Map> mapList = sysAdminMapper.getRoleByName("soft1851");
         System.out.println(mapList);
     }
+
 }

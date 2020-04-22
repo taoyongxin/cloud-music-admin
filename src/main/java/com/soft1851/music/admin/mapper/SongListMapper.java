@@ -1,0 +1,33 @@
+package com.soft1851.music.admin.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.soft1851.music.admin.dto.PageDto;
+import com.soft1851.music.admin.entity.SongList;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author tao
+ * @since 2020-04-21
+ */
+public interface SongListMapper extends BaseMapper<SongList> {
+
+    /**
+     * 分页查询全部歌单
+     * @param pageDto
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT * FROM song_list " +
+            "LIMIT ${pageDto.pageSize*(pageDto.currentPage-1)},#{pageDto.pageSize}")
+    List<Map<String,Object>> getAllSongList(@Param("pageDto") PageDto pageDto) throws SQLException;
+
+}

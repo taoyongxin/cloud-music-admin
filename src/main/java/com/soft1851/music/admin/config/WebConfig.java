@@ -32,9 +32,9 @@ public class WebConfig implements WebMvcConfigurer {
 //                .excludePathPatterns("/static/**");
 
         //JWT拦截器，放行登录和验证码接口
-        registry.addInterceptor(tokenInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/sysAdmin/login","/captcha")
-                .excludePathPatterns("/static/**");
+//        registry.addInterceptor(tokenInterceptor).addPathPatterns("/**")
+//                .excludePathPatterns("/sysAdmin/login","/captcha/*")
+//                .excludePathPatterns("/static/**");
         //验证码拦截器，拦截登录接口
         registry.addInterceptor(loginInterceptor).addPathPatterns("/sysAdmin/login");
     }

@@ -6,12 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = CloudMusicAdminApplication.class)
 class SongListMapperTest {
     @Resource
@@ -25,6 +22,7 @@ class SongListMapperTest {
                 .build();
         List<Map<String,Object>> mapList = songListMapper.getAllSongList(pageDto);
         System.out.println(mapList);
-
     }
+
+
 }

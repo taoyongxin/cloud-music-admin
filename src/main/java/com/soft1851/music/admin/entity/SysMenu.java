@@ -70,7 +70,7 @@ public class SysMenu extends Model<SysMenu> {
     private Integer sort;
 
     @TableField("status")
-    private Boolean status;
+    private Short status;
 
     @Override
     protected Serializable pkVal() {

@@ -39,7 +39,8 @@ class SysRoleMapperTest {
                         menu.getTitle(),
                         menu.getIcon(),
                         menu.getPath(),
-                        menu.getSort());
+                        menu.getSort(),
+                        menu.getStatus());
                 list.add(treeNode);
             } else {
                 TreeNode treeNode = new TreeNode(
@@ -49,7 +50,8 @@ class SysRoleMapperTest {
                         menu.getTitle(),
                         menu.getIcon(),
                         menu.getPath(),
-                        menu.getSort());
+                        menu.getSort(),
+                        menu.getStatus());
                 list.add(treeNode);
             }
         }

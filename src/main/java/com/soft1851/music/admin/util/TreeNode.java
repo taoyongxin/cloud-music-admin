@@ -33,9 +33,11 @@ public class TreeNode {
 
     private Integer sort;
 
+    private Short status;
+
     private List<TreeNode> subMenus;
 
-    public TreeNode(Integer id, Integer parentId, Integer type,String title, String icon, String path, Integer sort) {
+    public TreeNode(Integer id, Integer parentId, Integer type,String title, String icon, String path, Integer sort ,Short status) {
         this.id = id;
         this.parentId = parentId;
         this.type = type;
@@ -43,5 +45,6 @@ public class TreeNode {
         this.icon = icon;
         this.path = path;
         this.sort = sort;
+        this.status = status;
     }
 }

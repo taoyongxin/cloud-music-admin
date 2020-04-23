@@ -48,7 +48,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
                         menu.getTitle(),
                         menu.getIcon(),
                         menu.getPath(),
-                        menu.getSort());
+                        menu.getSort(),
+                        menu.getStatus());
                 list.add(treeNode);
             } else {
                 TreeNode treeNode = new TreeNode(
@@ -58,7 +59,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
                         menu.getTitle(),
                         menu.getIcon(),
                         menu.getPath(),
-                        menu.getSort());
+                        menu.getSort(),
+                        menu.getStatus());
                 list.add(treeNode);
             }
         }

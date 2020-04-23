@@ -29,5 +29,4 @@ public class SysRoleController {
     public Map getRoleById(@Param("roleId") String roleId){
         return sysRoleService.selectRoleById(Integer.parseInt(roleId));
     }
-
 }

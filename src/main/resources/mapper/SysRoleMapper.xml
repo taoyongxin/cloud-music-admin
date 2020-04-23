@@ -13,6 +13,7 @@
             <result property="path" column="path" javaType="java.lang.String"/>
             <result property="icon" column="icon" javaType="java.lang.String"/>
             <result property="sort" column="sort" javaType="java.lang.Integer"/>
+            <result property="status" column="status" javaType="java.lang.Short"/>
         </collection>
     </resultMap>
 

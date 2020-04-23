@@ -5,6 +5,8 @@ import com.soft1851.music.admin.dto.PageDto;
 import com.soft1851.music.admin.entity.SongList;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -21,4 +23,12 @@ public interface SongListService extends IService<SongList> {
      * @return
      */
     ResponseResult getAllSongList(PageDto pageDto);
+
+    /**
+     * 分页查询
+     * @param current
+     * @param size
+     * @return
+     */
+    List<SongList> getByPage(int current,int size);
 }

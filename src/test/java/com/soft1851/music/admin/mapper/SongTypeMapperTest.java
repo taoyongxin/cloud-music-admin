@@ -63,11 +63,14 @@ class SongTypeMapperTest {
         System.out.println(songTypeIPage);
     }
 
+
     @Test
     void delete() {
         QueryWrapper<SongType> queryWrapper = new QueryWrapper<>();
+//        type_name不为空,song_count低于1000
         queryWrapper.isNotNull("type_name")
-                .le("cong_count",1000);
+                .le("song_count",800);
         int delete = songTypeMapper.delete(queryWrapper);
+        System.out.println("delete return count = " + delete);
     }
 }

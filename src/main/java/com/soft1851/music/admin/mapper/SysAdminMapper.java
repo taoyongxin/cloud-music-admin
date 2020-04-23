@@ -37,7 +37,7 @@ public interface SysAdminMapper extends BaseMapper<SysAdmin> {
 
     /**
      * 根据用户name查询用户角色信息
-     * @param name
+     * @param adminId
      * @return
      * @throws SQLException
      */
@@ -47,7 +47,7 @@ public interface SysAdminMapper extends BaseMapper<SysAdmin> {
             "ON t3.admin_id = t1.id " +
             "LEFT JOIN sys_role t2 " +
             "ON t3.role_id = t2.role_id " +
-            "WHERE t3.name = #{name}")
-    List<Map> getRoleByName(String name) throws SQLException;
+            "WHERE t3.admin_id = #{adminId}")
+    List<Map> getRoleByAdminId(String adminId) throws SQLException;
 
 }

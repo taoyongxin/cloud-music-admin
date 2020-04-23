@@ -20,4 +20,6 @@ class RoleMenuMapperTest {
         List<Map> mapList = roleMenuMapper.getParentMenuByRoleId(1);
         System.out.println(mapList);
     }
+
+
 }

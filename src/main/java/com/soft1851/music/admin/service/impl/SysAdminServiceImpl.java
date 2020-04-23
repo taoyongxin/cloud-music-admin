@@ -1,5 +1,6 @@
 package com.soft1851.music.admin.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.soft1851.music.admin.common.ResponseResult;
 import com.soft1851.music.admin.common.ResultCode;
@@ -66,14 +67,21 @@ public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdmin> i
     @Override
     public ResponseResult getRoleByName(String name) {
         List<Map> mapList = null;
+        QueryWrapper<SysAdmin> sysAdminQueryWrapper = new QueryWrapper<>();
+        sysAdminQueryWrapper.eq("name",name);
+        SysAdmin sysAdmin = sysAdminMapper.selectOne(sysAdminQueryWrapper);
         try {
-            mapList = sysAdminMapper.getRoleByName(name);
+            mapList = sysAdminMapper.getRoleByAdminId(sysAdmin.getId());
         } catch (SQLException e) {
             log.error(e.getMessage());
             throw new CustomException("数据库出错", ResultCode.DATABASE_ERROR);
         }
         return ResponseResult.success(mapList);
     }
+
+
+
+
 
     @Override
     public List<SysAdmin> getAdminMenuByAdminId(String userId) {

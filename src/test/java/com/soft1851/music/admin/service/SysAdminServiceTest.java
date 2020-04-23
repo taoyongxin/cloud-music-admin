@@ -2,6 +2,7 @@ package com.soft1851.music.admin.service;
 
 import com.soft1851.music.admin.CloudMusicAdminApplication;
 import com.soft1851.music.admin.dto.LoginDto;
+import com.soft1851.music.admin.entity.SysAdmin;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -23,20 +24,8 @@ class SysAdminServiceTest {
     }
 
     @Test
-    void getAdmin() {
-        System.out.println(sysAdminService.getAdmin("mqxu"));
+    void getAdminRolesByName() {
+        SysAdmin sysAdmin = sysAdminService.getAdminRolesByName("mqxu");
+        System.out.println(sysAdmin);
     }
-
-    @Test
-    void getRoleByName() {
-        System.out.println(sysAdminService.getRoleByName("taoranran"));
-    }
-
-//    @Test
-//    void getRoleByName() {
-//        ResponseResult responseResult = sysAdminService.getRoleByRoleId("1");
-//        System.out.println(responseResult);
-//    }
-
-
 }

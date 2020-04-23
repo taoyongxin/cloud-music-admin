@@ -12,5 +12,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2020-04-21
  */
 public interface SysRoleMapper extends BaseMapper<SysRole> {
-
+    /**
+     * 根据id查询角色信息和其包含的所有菜单
+     * @param roleId
+     * @return
+     */
+    SysRole selectRoleById(int roleId);
 }

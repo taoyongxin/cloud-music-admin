@@ -20,22 +20,14 @@ public class WebConfig implements WebMvcConfigurer {
     @Resource
     private LoginInterceptor loginInterceptor;
     @Resource
-    private TokenInterceptor tokenInterceptor;
+    private TokenInterceptor jwtInterceptor;
     /**
      * 添加拦截器配置
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //拦截路径可自行配置多个 可用 ，分隔开
-//        registry.addInterceptor(loginInterceptor).addPathPatterns("/**")
-//                .excludePathPatterns("/login","/captcha","/roleMenu/*","/songList/*","/sysAdmin/*","/roleMenu/all/*")
-//                .excludePathPatterns("/static/**");
-
-        //JWT拦截器，放行登录和验证码接口
-//        registry.addInterceptor(tokenInterceptor).addPathPatterns("/**")
-//                .excludePathPatterns("/sysAdmin/login","/captcha/*")
-//                .excludePathPatterns("/static/**");
-        //验证码拦截器，拦截登录接口
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/sysAdmin/login");
+        registry.addInterceptor(loginInterceptor).excludePathPatterns("/**").excludePathPatterns("/static/**");
+        registry.addInterceptor(jwtInterceptor).addPathPatterns("/**").excludePathPatterns("/sysAdmin/login","/captcha/*").excludePathPatterns("/static/**");
     }
 }

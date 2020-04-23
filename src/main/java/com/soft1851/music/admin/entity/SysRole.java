@@ -1,14 +1,16 @@
 package com.soft1851.music.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -19,6 +21,9 @@ import lombok.experimental.Accessors;
  * @since 2020-04-21
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_role")
@@ -41,8 +46,15 @@ public class SysRole extends Model<SysRole> {
     /**
      * 角色描述
      */
+    @JsonIgnore
     @TableField("description")
     private String description;
+
+    /**
+     * SysRole中增加一个SysRole的List
+     */
+    @JsonIgnore
+    private List<SysMenu> menus;
 
 
     @Override

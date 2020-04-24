@@ -33,11 +33,12 @@ public class SongListServiceImpl extends ServiceImpl<SongListMapper, SongList> i
     @Resource
     private SongListMapper songListMapper;
 
+
     @Override
-    public ResponseResult getAllSongList(PageDto pageDto) {
-        List<Map<String,Object>> mapList;
+    public ResponseResult searchSongList(PageDto pageDto) {
+        List<SongList> mapList;
         try {
-            mapList = songListMapper.getAllSongList(pageDto);
+            mapList = songListMapper.searchSongList(pageDto);
         } catch (SQLException e) {
             return ResponseResult.failure(ResultCode.DATABASE_ERROR);
         }

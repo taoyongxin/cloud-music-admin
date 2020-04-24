@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Select;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -20,14 +19,14 @@ import java.util.Map;
  */
 public interface SongListMapper extends BaseMapper<SongList> {
 
-    /**
-     * 分页查询全部歌单
+    /***
+     * 模糊查询+分页查询
      * @param pageDto
      * @return
      * @throws SQLException
      */
     @Select("SELECT * FROM song_list " +
+            "WHERE song_list_name LIKE CONCAT('%',#{pageDto.field},'%') OR type LIKE CONCAT('%',#{pageDto.field},'%') " +
             "LIMIT ${pageDto.pageSize*(pageDto.currentPage-1)},#{pageDto.pageSize}")
-    List<Map<String,Object>> getAllSongList(@Param("pageDto") PageDto pageDto) throws SQLException;
-
+    List<SongList> searchSongList(@Param("pageDto") PageDto pageDto) throws SQLException;
 }

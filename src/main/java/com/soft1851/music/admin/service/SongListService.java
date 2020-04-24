@@ -23,7 +23,7 @@ public interface SongListService extends IService<SongList> {
      * @param pageDto
      * @return
      */
-    ResponseResult getAllSongList(PageDto pageDto);
+    ResponseResult searchSongList(PageDto pageDto);
 
     /**
      * 分页查询.

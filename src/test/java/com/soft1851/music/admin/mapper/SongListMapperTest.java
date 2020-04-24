@@ -19,15 +19,6 @@ class SongListMapperTest {
     @Resource
     private SongListMapper songListMapper;
 
-    @Test
-    void getAllSongList() throws SQLException {
-        PageDto pageDto = PageDto.builder()
-                .currentPage(1)
-                .pageSize(3)
-                .build();
-        List<Map<String,Object>> mapList = songListMapper.getAllSongList(pageDto);
-        System.out.println(mapList);
-    }
 
     @Test
     void selectPage() {
@@ -69,5 +60,16 @@ class SongListMapperTest {
         }
         int result = songListMapper.deleteBatchIds(allIds);
         System.out.println(result);
+    }
+
+    @Test
+    void searchSongList() throws SQLException{
+        PageDto pageDto = PageDto.builder()
+                .currentPage(1)
+                .pageSize(5)
+                .field("欧美")
+                .build();
+        List<SongList> lists = songListMapper.searchSongList(pageDto);
+        System.out.println(lists);
     }
 }

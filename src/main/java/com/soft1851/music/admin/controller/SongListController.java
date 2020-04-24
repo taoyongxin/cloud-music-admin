@@ -32,9 +32,9 @@ public class SongListController {
      * @param pageDto
      * @return
      */
-    @PostMapping("/all")
+    @PostMapping("/blur/page")
     public ResponseResult getAllSongList(@RequestBody PageDto pageDto) {
-        return songListService.getAllSongList(pageDto);
+        return songListService.searchSongList(pageDto);
     }
 
     /**

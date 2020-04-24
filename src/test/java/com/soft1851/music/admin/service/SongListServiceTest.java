@@ -20,15 +20,6 @@ class SongListServiceTest {
     @Resource
     private SongListService songListService;
 
-    @Test
-    void getAllSongList() {
-        PageDto pageDto = PageDto.builder()
-                .currentPage(1)
-                .pageSize(3)
-                .build();
-        ResponseResult result = songListService.getAllSongList(pageDto);
-        System.out.println(result);
-    }
 
     /**
      * 需要加分页的插件
@@ -60,5 +51,16 @@ class SongListServiceTest {
     void batchDeleteById() {
         String id = "100305590,101928470";
         songListService.batchDeleteById(id);
+    }
+
+    @Test
+    void searchSongList() {
+        PageDto pageDto = PageDto.builder()
+                .currentPage(1)
+                .pageSize(3)
+                .field("欧美")
+                .build();
+        ResponseResult result = songListService.searchSongList(pageDto);
+        System.out.println(result);
     }
 }

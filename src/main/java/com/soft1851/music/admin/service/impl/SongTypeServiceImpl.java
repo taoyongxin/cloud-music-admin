@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.soft1851.music.admin.common.ResponseResult;
 import com.soft1851.music.admin.dto.PageDto;
 import com.soft1851.music.admin.entity.SongType;
 import com.soft1851.music.admin.mapper.SongTypeMapper;
@@ -11,6 +12,7 @@ import com.soft1851.music.admin.service.SongTypeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,5 +35,24 @@ public class SongTypeServiceImpl extends ServiceImpl<SongTypeMapper, SongType> i
         QueryWrapper<SongType> wrapper = new QueryWrapper<>();
         IPage<SongType> iPage = songTypeMapper.selectPage(page,wrapper);
         return iPage.getRecords();
+    }
+
+    @Override
+    public List<SongType> fuzzySearch(String filed) {
+        QueryWrapper<SongType> wrapper = new QueryWrapper<>();
+        wrapper.like("type_name",filed);
+        return songTypeMapper.selectList(wrapper);
+    }
+
+    @Override
+    public ResponseResult batchDeleteById(String idLists) {
+        List<String> allIdList = new ArrayList<>();
+        String[] ids = idLists.split(",");
+        List<String> allIds = new ArrayList<>();
+        for (int i = 0;i<ids.length;i++){
+            allIds.add(ids[i]);
+        }
+        songTypeMapper.deleteBatchIds(allIds);
+        return ResponseResult.success();
     }
 }

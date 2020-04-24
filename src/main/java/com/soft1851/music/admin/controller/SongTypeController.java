@@ -1,13 +1,12 @@
 package com.soft1851.music.admin.controller;
 
 
+import com.soft1851.music.admin.common.ResponseResult;
 import com.soft1851.music.admin.dto.PageDto;
 import com.soft1851.music.admin.entity.SongType;
 import com.soft1851.music.admin.service.SongTypeService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,5 +27,20 @@ public class SongTypeController {
     @PostMapping("/page")
     public List<SongType> getSongListByPage(@RequestBody PageDto pageDto){
         return songTypeService.getSongTypeByPage(pageDto);
+    }
+
+    @DeleteMapping("/batchDelete")
+    ResponseResult batchDeleteById(@Param("ids") String ids){
+        return songTypeService.batchDeleteById(ids);
+    }
+
+    /**
+     * 根据关键字模糊查询
+     * @param field
+     * @return
+     */
+    @GetMapping("/blur")
+    public List<SongType> fuzzySearch(@Param("field") String field){
+        return songTypeService.fuzzySearch(field);
     }
 }

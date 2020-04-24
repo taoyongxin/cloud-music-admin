@@ -1,6 +1,7 @@
 package com.soft1851.music.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.soft1851.music.admin.common.ResponseResult;
@@ -42,9 +43,10 @@ public class SongListServiceImpl extends ServiceImpl<SongListMapper, SongList> i
     }
 
     @Override
-    public List<SongList> getByPage(int current, int size) {
-        Page<SongList> page = new Page<>(current,size);
+    public List<SongList> getByPage(PageDto pageDto) {
+        Page<SongList> page = new Page<>(pageDto.getCurrentPage(),pageDto.getPageSize());
         QueryWrapper<SongList> wrapper = new QueryWrapper<>();
-        return null;
+        IPage<SongList> iPage = songListMapper.selectPage(page,wrapper);
+        return iPage.getRecords();
     }
 }

@@ -25,10 +25,9 @@ public interface SongListService extends IService<SongList> {
     ResponseResult getAllSongList(PageDto pageDto);
 
     /**
-     * 分页查询
-     * @param current
-     * @param size
+     * 分页查询.
+     * @param pageDto
      * @return
      */
-    List<SongList> getByPage(int current,int size);
+    List<SongList> getByPage(PageDto pageDto);
 }

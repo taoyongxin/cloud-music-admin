@@ -27,48 +27,7 @@ import java.util.Map;
 @Service
 @Slf4j
 public class RoleMenuServiceImpl extends ServiceImpl<RoleMenuMapper, RoleMenu> implements RoleMenuService {
-    @Resource
-    private RoleMenuMapper roleMenuMapper;
-    @Resource
-    private SysAdminMapper sysAdminMapper;
 
-    @Override
-    public ResponseResult getMenusByName(String name) {
-//        List<Map> roleMapList;
-//        List<Map> map = null;
-//        QueryWrapper<SysAdmin> sysAdminQueryWrapper = new QueryWrapper<>();
-//        sysAdminQueryWrapper.eq("name",name);
-//        SysAdmin sysAdmin = sysAdminMapper.selectOne(sysAdminQueryWrapper);
-//        try {
-//            roleMapList = sysAdminMapper.getRoleByRoleId(sysAdmin.getId());
-//        } catch (SQLException e) {
-//            log.error(e.getMessage());
-//            throw new CustomException("数据库出错", ResultCode.DATABASE_ERROR);
-//        }
-//        for(Map role:roleMapList){
-//            try {
-//                map = roleMenuMapper.getParentMenuByRoleId((Integer) role.get("role_id"));
-//                role.put("Menus",map);
-//            } catch (SQLException e) {
-//                log.error(e.getMessage());
-//                throw new CustomException("数据库出错", ResultCode.DATABASE_ERROR);
-//            }
-//        }
-//        return ResponseResult.success(roleMapList);
-        return null;
-    }
-
-    @Override
-    public ResponseResult getParentMenuByRoleId(int roleId) {
-        List<Map> mapList = null;
-        try {
-            mapList = roleMenuMapper.getParentMenuByRoleId(roleId);
-        } catch (SQLException e) {
-            log.error(e.getMessage());
-            throw new CustomException("数据库出错", ResultCode.DATABASE_ERROR);
-        }
-        return ResponseResult.success(mapList);
-    }
 
 
 }

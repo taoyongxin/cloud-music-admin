@@ -52,4 +52,13 @@ class SongListServiceTest {
         List<Map<String,Object>> mapList = songListService.selectAll();
         System.out.println(mapList);
     }
+
+    /**
+     * 批量删除
+     */
+    @Test
+    void batchDeleteById() {
+        String id = "100305590,101928470";
+        songListService.batchDeleteById(id);
+    }
 }

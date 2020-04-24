@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -69,5 +70,43 @@ public class SongListServiceImpl extends ServiceImpl<SongListMapper, SongList> i
             return songLists;
         }
         throw new CustomException("歌单查询异常", ResultCode.DATABASE_ERROR);
+    }
+
+    /**
+     * 根绝歌单id删除歌单
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseResult deleteSongList(String id) {
+        songListMapper.deleteById(id);
+        return ResponseResult.success();
+    }
+
+    @Override
+    public ResponseResult updateSongList(SongList songList) {
+        SongList songList1 = songListMapper.selectById(songList.getSongListId());
+        songList1.setSongListName(songList.getSongListName());
+        songList1.setThumbnail(songList.getThumbnail());
+        songList1.setType(songList.getType());
+        songListMapper.updateById(songList1);
+        return ResponseResult.success(songList1);
+    }
+
+    /**
+     * 批量删除
+     * @param idLists
+     * @return
+     */
+    @Override
+    public ResponseResult batchDeleteById(String idLists) {
+        List<String> allIdList = new ArrayList<>();
+        String[] ids = idLists.split(",");
+        List<String> allIds = new ArrayList<>();
+        for (int i = 0;i<ids.length;i++){
+            allIds.add(ids[i]);
+        }
+        songListMapper.deleteBatchIds(allIds);
+        return ResponseResult.success();
     }
 }

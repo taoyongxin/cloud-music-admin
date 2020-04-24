@@ -44,4 +44,25 @@ public interface SongListService extends IService<SongList> {
      * @return
      */
     List<Map<String, Object>> selectAll();
+
+    /**
+     * 根据id删除歌单
+     * @param id
+     * @return
+     */
+    ResponseResult deleteSongList(String id);
+
+    /**
+     *修改歌单数据
+     * @param songList
+     * @return
+     */
+    ResponseResult updateSongList(SongList songList);
+
+    /**
+     * 批量删除
+     * @param idLists
+     * @return
+     */
+    ResponseResult batchDeleteById(String idLists);
 }

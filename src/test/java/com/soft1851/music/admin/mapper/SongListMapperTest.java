@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @SpringBootTest(classes = CloudMusicAdminApplication.class)
@@ -35,5 +36,38 @@ class SongListMapperTest {
         IPage<SongList> songListIPage = songListMapper.selectPage(page,queryWrapper);
         List<SongList> songLists = songListIPage.getRecords();
         System.out.println(songLists);
+    }
+
+    /**
+     *
+     * @throws SQLException
+     */
+    @Test
+    void testDeleteById() throws SQLException {
+        int result = songListMapper.deleteById(100827084);
+        System.out.println(result);
+    }
+
+    @Test
+    void testUpdate() {
+        //根据id查出用户数据
+        SongList songList = songListMapper.selectById(101003590);
+        songList.setSongListName("测试修改歌单名");
+        songList.updateById();
+    }
+
+    /**
+     * 批量删除
+     */
+    @Test
+    void testDeleteBatchIds() throws SQLException{
+        String str = "102008316,102727970,102760137";
+        String[] st1 = str.split(",");
+        List<String> allIds = new ArrayList<>();
+        for (int i = 0;i<st1.length;i++){
+            allIds.add(st1[i]);
+        }
+        int result = songListMapper.deleteBatchIds(allIds);
+        System.out.println(result);
     }
 }

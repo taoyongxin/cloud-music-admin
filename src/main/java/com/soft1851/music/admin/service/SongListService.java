@@ -1,11 +1,12 @@
 package com.soft1851.music.admin.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.soft1851.music.admin.common.ResponseResult;
 import com.soft1851.music.admin.dto.PageDto;
 import com.soft1851.music.admin.entity.SongList;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -30,4 +31,17 @@ public interface SongListService extends IService<SongList> {
      * @return
      */
     List<SongList> getByPage(PageDto pageDto);
+
+    /**
+     * 模糊查询
+     * @param filed
+     * @return
+     */
+    List<SongList> fuzzySearch(String filed);
+
+    /**
+     * 查询所有歌单
+     * @return
+     */
+    List<Map<String, Object>> selectAll();
 }

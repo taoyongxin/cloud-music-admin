@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @SpringBootTest(classes = CloudMusicAdminApplication.class)
 class SongListServiceTest {
@@ -37,7 +39,17 @@ class SongListServiceTest {
         QueryWrapper<SongList> wrapper = new QueryWrapper<>(null);
         IPage<SongList> page1 = songListService.page(page, wrapper);
         System.out.println(page1.getRecords());
-//        List<SongList> songLists = songListService.getByPage(1,2);
-//        System.out.println(songLists);
+    }
+
+    @Test
+    void fuzzySearch() {
+        List<SongList> songLists = songListService.fuzzySearch("摇滚");
+        System.out.println(songLists);
+    }
+
+    @Test
+    void selectAll() {
+        List<Map<String,Object>> mapList = songListService.selectAll();
+        System.out.println(mapList);
     }
 }

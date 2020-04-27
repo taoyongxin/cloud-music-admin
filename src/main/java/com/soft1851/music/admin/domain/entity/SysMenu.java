@@ -1,4 +1,4 @@
-package com.soft1851.music.admin.entity;
+package com.soft1851.music.admin.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -22,8 +22,8 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("role_menu")
-public class RoleMenu extends Model<RoleMenu> {
+@TableName("sys_menu")
+public class SysMenu extends Model<SysMenu> {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,23 +34,43 @@ public class RoleMenu extends Model<RoleMenu> {
     private Integer id;
 
     /**
-     * 角色id
+     * 父级资源id，目录的parent_id为0
      */
-    @TableField("role_id")
-    private Integer roleId;
+    @TableField("parent_id")
+    private Integer parentId;
 
     /**
-     * 资源id
+     * 资源类型：1 目录  2 菜单  3 按钮
      */
-    @TableField("menu_id")
-    private Integer menuId;
+    @TableField("type")
+    private Integer type;
 
     /**
-     * 角色对资源的细粒度按钮权限
+     * 资源名称
      */
-//    @TableField("permissions")
-//    private String permissions;
+    @TableField("title")
+    private String title;
 
+    /**
+     * 资源url
+     */
+    @TableField("path")
+    private String path;
+
+    /**
+     * 资源图标
+     */
+    @TableField("icon")
+    private String icon;
+
+    /**
+     * 排序号
+     */
+    @TableField("sort")
+    private Integer sort;
+
+    @TableField("status")
+    private Short status;
 
     @Override
     protected Serializable pkVal() {

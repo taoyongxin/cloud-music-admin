@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.soft1851.music.admin.CloudMusicAdminApplication;
-import com.soft1851.music.admin.dto.PageDto;
-import com.soft1851.music.admin.entity.SongList;
+import com.soft1851.music.admin.domain.dto.PageDto;
+import com.soft1851.music.admin.domain.entity.SongList;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 @SpringBootTest(classes = CloudMusicAdminApplication.class)
 class SongListMapperTest {
     @Resource

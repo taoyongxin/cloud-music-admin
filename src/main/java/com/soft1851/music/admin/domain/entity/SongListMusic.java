@@ -1,4 +1,4 @@
-package com.soft1851.music.admin.entity;
+package com.soft1851.music.admin.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("video_comment")
-public class VideoComment extends Model<VideoComment> {
+@TableName("song_list_music")
+public class SongListMusic extends Model<SongListMusic> {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,22 +33,16 @@ public class VideoComment extends Model<VideoComment> {
     private String id;
 
     /**
-     * 视频id
+     * 歌曲歌单id
      */
-    @TableField("video_id")
-    private String videoId;
+    @TableField("song_list_id")
+    private String songListId;
 
     /**
-     * 评论id
+     * 歌曲id
      */
-    @TableField("comment_id")
-    private String commentId;
-
-    /**
-     * 评论内容
-     */
-    @TableField("comment_contetn")
-    private String commentContetn;
+    @TableField("song_id")
+    private String songId;
 
     /**
      * 创建时间
@@ -61,6 +55,12 @@ public class VideoComment extends Model<VideoComment> {
      */
     @TableField("update_time")
     private LocalDateTime updateTime;
+
+    /**
+     * 榜单排名
+     */
+    @TableField("ratio")
+    private Integer ratio;
 
 
     @Override

@@ -1,8 +1,8 @@
 package com.soft1851.music.admin.mapper;
 
 import com.soft1851.music.admin.CloudMusicAdminApplication;
-import com.soft1851.music.admin.entity.SysMenu;
-import com.soft1851.music.admin.entity.SysRole;
+import com.soft1851.music.admin.domain.entity.SysMenu;
+import com.soft1851.music.admin.domain.entity.SysRole;
 import com.soft1851.music.admin.util.TreeBuilder;
 import com.soft1851.music.admin.util.TreeNode;
 import org.junit.jupiter.api.Test;
@@ -13,8 +13,6 @@ import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = CloudMusicAdminApplication.class)
 class SysRoleMapperTest {

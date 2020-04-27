@@ -1,7 +1,7 @@
 package com.soft1851.music.admin.mapper;
 
 import com.soft1851.music.admin.CloudMusicAdminApplication;
-import com.soft1851.music.admin.entity.SysMenu;
+import com.soft1851.music.admin.domain.entity.SysMenu;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

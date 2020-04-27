@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.soft1851.music.admin.CloudMusicAdminApplication;
 import com.soft1851.music.admin.common.ResponseResult;
-import com.soft1851.music.admin.dto.PageDto;
-import com.soft1851.music.admin.entity.SongList;
+import com.soft1851.music.admin.domain.dto.PageDto;
+import com.soft1851.music.admin.domain.entity.SongList;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -62,5 +62,10 @@ class SongListServiceTest {
                 .build();
         ResponseResult result = songListService.searchSongList(pageDto);
         System.out.println(result);
+    }
+
+    @Test
+    void exportData() {
+        songListService.exportData();
     }
 }

@@ -2,8 +2,8 @@ package com.soft1851.music.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.soft1851.music.admin.common.ResponseResult;
-import com.soft1851.music.admin.dto.PageDto;
-import com.soft1851.music.admin.entity.SongList;
+import com.soft1851.music.admin.domain.dto.PageDto;
+import com.soft1851.music.admin.domain.entity.SongList;
 
 import java.util.List;
 import java.util.Map;
@@ -65,4 +65,9 @@ public interface SongListService extends IService<SongList> {
      * @return
      */
     ResponseResult batchDeleteById(String idLists);
+
+    /**
+     * 导出歌单
+     */
+    void exportData();
 }

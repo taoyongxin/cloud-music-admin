@@ -1,8 +1,10 @@
 package com.soft1851.music.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.soft1851.music.admin.dto.LoginDto;
-import com.soft1851.music.admin.entity.SysAdmin;
+import com.soft1851.music.admin.domain.dto.LoginDto;
+import com.soft1851.music.admin.domain.entity.SysAdmin;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -18,7 +20,7 @@ public interface SysAdminService extends IService<SysAdmin> {
      * @param loginDto
      * @return
      */
-    boolean login(LoginDto loginDto);
+    Map<String,Object> login(LoginDto loginDto);
 
     /**
      * 根据name查询Admin信息，包含其所有角色

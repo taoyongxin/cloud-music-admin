@@ -2,8 +2,8 @@ package com.soft1851.music.admin.controller;
 
 
 import com.soft1851.music.admin.common.ResponseResult;
-import com.soft1851.music.admin.dto.PageDto;
-import com.soft1851.music.admin.entity.SongType;
+import com.soft1851.music.admin.domain.dto.PageDto;
+import com.soft1851.music.admin.domain.entity.SongType;
 import com.soft1851.music.admin.service.SongTypeService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;

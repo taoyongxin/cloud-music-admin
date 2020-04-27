@@ -2,8 +2,8 @@ package com.soft1851.music.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.soft1851.music.admin.common.ResponseResult;
-import com.soft1851.music.admin.dto.PageDto;
-import com.soft1851.music.admin.entity.SongType;
+import com.soft1851.music.admin.domain.dto.PageDto;
+import com.soft1851.music.admin.domain.entity.SongType;
 
 import java.util.List;
 

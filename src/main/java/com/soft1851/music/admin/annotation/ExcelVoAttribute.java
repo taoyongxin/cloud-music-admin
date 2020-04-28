@@ -10,9 +10,7 @@ import java.lang.annotation.Target;
  * 自定义注解，封装Excel导出需求，可根据实际需求扩展
  *
  */
-//运行时有效
 @Retention(RetentionPolicy.RUNTIME)
-//字段类型
 @Target({ElementType.FIELD})
 public @interface ExcelVoAttribute {
     /**

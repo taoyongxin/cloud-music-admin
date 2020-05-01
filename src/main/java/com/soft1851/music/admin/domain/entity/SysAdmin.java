@@ -40,7 +40,7 @@ public class SysAdmin extends Model<SysAdmin> {
     /**
      * 用户名
      */
-    @Size(max = 10,message = "用户名长度在10以内")
+    @Size(max = 15,message = "用户名长度在15以内")
     private String name;
 
     /**

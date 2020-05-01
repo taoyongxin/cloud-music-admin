@@ -8,6 +8,7 @@ import com.soft1851.music.admin.annotation.ExcelVoAttribute;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.URL;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -47,6 +48,7 @@ public class SongList extends Model<SongList> {
      * 封面
      */
     @ExcelVoAttribute(name = "歌单封面图",column = 2)
+    @URL(message = "不是一个链接")
     @TableField("thumbnail")
     private String thumbnail;
 

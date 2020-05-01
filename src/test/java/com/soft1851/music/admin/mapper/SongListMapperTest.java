@@ -66,7 +66,7 @@ class SongListMapperTest {
     void searchSongList() throws SQLException{
         PageDto pageDto = PageDto.builder()
                 .currentPage(1)
-                .pageSize(5)
+                .pageSize(3)
                 .field("欧美")
                 .build();
         List<SongList> lists = songListMapper.searchSongList(pageDto);

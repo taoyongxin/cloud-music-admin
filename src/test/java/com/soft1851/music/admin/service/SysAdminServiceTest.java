@@ -18,4 +18,14 @@ class SysAdminServiceTest {
         SysAdmin sysAdmin = sysAdminService.getAdminRolesByName("mqxu");
         System.out.println(sysAdmin);
     }
+
+    @Test
+    void updateSysAdmin() {
+        SysAdmin sysAdmin = new SysAdmin();
+        sysAdmin.setId("DE35D7CC05AF96A21D7ADFC8651E6614");
+        sysAdmin.setName("mqxu");
+        sysAdmin.setPassword("12345");
+        sysAdmin.setAvatar("测试头像");
+        sysAdminService.updateSysAdmin(sysAdmin);
+    }
 }

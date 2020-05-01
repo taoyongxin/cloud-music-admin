@@ -20,6 +20,7 @@ public class Md5Util {
         String md5 = "";
         try {
             // 创建加密对象
+            System.out.println("进入md5等待被加密："+pwd);
             MessageDigest md = MessageDigest.getInstance("md5");
             if (bit == 64) {
                 Base64.Encoder encoder = Base64.getEncoder();
@@ -63,7 +64,7 @@ public class Md5Util {
     }
 
     public static void main(String[] args) {
-        String a = "123456";
+        String a = "999";
         String md5a = getMd5(a, true, 32);
         System.out.println(md5a);
         System.out.println(md5a.length());

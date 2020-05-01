@@ -24,4 +24,10 @@ class SysAdminMapperTest {
         SysAdmin sysAdmin = sysAdminMapper.getSysAdminByName("mqxu");
         System.out.println(sysAdmin);
     }
+
+    @Test
+    void getSysAdminById() throws SQLException{
+        SysAdmin sysAdmin = sysAdminMapper.getSysAdminById("DE35D7CC05AF96A21D7ADFC8651E6614");
+        System.out.println(sysAdmin);
+    }
 }

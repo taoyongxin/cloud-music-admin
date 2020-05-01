@@ -7,9 +7,12 @@ import com.soft1851.music.admin.domain.entity.SongList;
 import com.soft1851.music.admin.service.SongListService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -23,6 +26,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/songList")
+@Validated
 public class SongListController {
     @Resource
     private SongListService songListService;
@@ -43,7 +47,8 @@ public class SongListController {
      * @return
      */
     @PostMapping("/page")
-    public List<SongList> getSongListByPage(@RequestBody PageDto pageDto){
+    public List<SongList> getSongListByPage(@RequestBody @Valid PageDto pageDto){
+        log.info(pageDto.toString());
         return songListService.getByPage(pageDto);
     }
 
@@ -53,7 +58,7 @@ public class SongListController {
      * @return
      */
     @GetMapping("/blur")
-    public List<SongList> fuzzySearch(@Param("field") String field){
+    public List<SongList> fuzzySearch(@Valid @Param("field") @Size(min = 2,message = "关键词不得少于两个字") String field){
         return songListService.fuzzySearch(field);
     }
 
@@ -73,7 +78,7 @@ public class SongListController {
      * @return
      */
     @PutMapping("/update")
-    ResponseResult updateSongList(@RequestBody SongList songList){
+    ResponseResult updateSongList(@RequestBody @Valid SongList songList){
         return songListService.updateSongList(songList);
     }
 

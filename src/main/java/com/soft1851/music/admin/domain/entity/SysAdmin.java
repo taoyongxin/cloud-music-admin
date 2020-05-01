@@ -8,7 +8,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.URL;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -38,13 +40,13 @@ public class SysAdmin extends Model<SysAdmin> {
     /**
      * 用户名
      */
-    @TableField("name")
+    @Size(max = 10,message = "用户名长度在10以内")
     private String name;
 
     /**
      * 密码
      */
-    @JsonIgnore
+
     @TableField("password")
     private String password;
 
@@ -58,6 +60,7 @@ public class SysAdmin extends Model<SysAdmin> {
     /**
      * 头像
      */
+    @URL(message = "头像不是链接的形式")
     @TableField("avatar")
     private String avatar;
 

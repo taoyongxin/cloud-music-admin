@@ -1,6 +1,17 @@
 server:
   port: 8080
 spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 3741ba9861a38a28cfac
+            clientSecret: dc7beab5000b6efe72d5267edc901b23550fd3de
   # jackson配置
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss

@@ -31,6 +31,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginInterceptor).addPathPatterns("/sysAdmin/login");
         //JWT拦截，放行登录验证码
         registry.addInterceptor(jwtInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/sysAdmin/login","/captcha/*").excludePathPatterns("/static/**");
+                .excludePathPatterns("/sysAdmin/login","/captcha/*","/oauth2/code/github").excludePathPatterns("/static/**");
     }
 }

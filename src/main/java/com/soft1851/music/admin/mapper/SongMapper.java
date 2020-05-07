@@ -20,6 +20,6 @@ public interface SongMapper extends BaseMapper<Song> {
      *
      * @return
      */
-    @Select("SELECT * FROM song  ORDER BY  song_id  LIMIT 100 ")
+    @Select("SELECT * FROM song  ORDER BY  song_id  LIMIT 100")
     List<Song> selectTop();
 }

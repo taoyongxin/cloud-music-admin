@@ -1,10 +1,12 @@
 package com.soft1851.music.admin.service;
 
 import com.soft1851.music.admin.CloudMusicAdminApplication;
+import com.soft1851.music.admin.domain.entity.SysRole;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 @SpringBootTest(classes = CloudMusicAdminApplication.class)
@@ -19,5 +21,9 @@ class SysRoleServiceTest {
     }
 
 
-
+    @Test
+    void selectAll() {
+        List<SysRole> sysRoles = sysRoleService.selectAll();
+        System.out.println(sysRoles);
+    }
 }

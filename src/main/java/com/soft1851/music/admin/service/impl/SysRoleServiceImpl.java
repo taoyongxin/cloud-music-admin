@@ -80,4 +80,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         }
         return flag;
     }
+
+    @Override
+    public List<SysRole> selectAll() {
+      return sysRoleMapper.selectList(null);
+    }
 }

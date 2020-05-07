@@ -46,7 +46,7 @@ public class SysRole extends Model<SysRole> {
     /**
      * 角色描述
      */
-    @JsonIgnore
+//    @JsonIgnore
     @TableField("description")
     private String description;
 

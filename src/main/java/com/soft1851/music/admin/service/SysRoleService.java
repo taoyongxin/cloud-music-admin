@@ -1,7 +1,7 @@
 package com.soft1851.music.admin.service;
 
-import com.soft1851.music.admin.domain.entity.SysRole;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.soft1851.music.admin.domain.entity.SysRole;
 
 import java.util.List;
 import java.util.Map;
@@ -29,4 +29,10 @@ public interface SysRoleService extends IService<SysRole> {
      * @return
      */
     boolean checkRole(List<SysRole> roles,int roleId);
+
+    /**
+     * 查询所有角色
+     * @return
+     */
+    List<SysRole> selectAll();
 }

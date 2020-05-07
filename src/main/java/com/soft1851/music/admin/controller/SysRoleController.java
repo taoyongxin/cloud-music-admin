@@ -1,6 +1,7 @@
 package com.soft1851.music.admin.controller;
 
 
+import com.soft1851.music.admin.domain.entity.SysRole;
 import com.soft1851.music.admin.service.SysRoleService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,5 +30,10 @@ public class SysRoleController {
     @GetMapping()
     public Map getRoleById(@Param("roleId") String roleId){
         return sysRoleService.selectRoleById(Integer.parseInt(roleId));
+    }
+
+    @GetMapping(value = "/list")
+    public List<SysRole> getSysRoles() {
+        return sysRoleService.selectAll();
     }
 }

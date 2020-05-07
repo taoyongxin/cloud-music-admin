@@ -88,7 +88,7 @@ public class AuthController {
             ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             assert sra != null;
             HttpServletResponse response = sra.getResponse();
-            response.sendRedirect("http://localhost:8088/#/auth?user=" + user);
+            response.sendRedirect("http://localhost:8888/#/auth?user=" + user);
         } catch (IOException e) {
             e.printStackTrace();
         }

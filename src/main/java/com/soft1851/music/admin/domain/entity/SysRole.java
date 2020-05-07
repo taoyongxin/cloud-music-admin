@@ -54,6 +54,7 @@ public class SysRole extends Model<SysRole> {
      * SysRole中增加一个SysRole的List
      */
     @JsonIgnore
+    @TableField(exist = false) //数据库不存在的字段
     private List<SysMenu> menus;
 
 
